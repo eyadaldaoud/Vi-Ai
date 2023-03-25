@@ -99,7 +99,7 @@ export default function Home() {
                     {msg?.img?.map((single) => (
                       
                       <div className="p-2">
-                        <img class="h-auto max-w-sm rounded-lg shadow-xl
+                        <img className="h-auto max-w-sm rounded-lg shadow-xl
                         dark:shadow-gray-800" src={single?.url} alt="image description" />
                       </div>
 

@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { BsDiscord, BsGithub } from "react-icons/bs";
-import { FaConnectdevelop, FaEye, FaEyeSlash, FaFacebook, FaLinkedin } from "react-icons/fa";
-import { Si1Password, SiOpenai } from "react-icons/si";
+import { FaConnectdevelop, FaEye, FaPaypal } from "react-icons/fa";
+import { SiOpenai } from "react-icons/si";
+import Mobilenav from "./Mobilenav";
 import Theme from "./Theme";
+
 
 const Navbar = ({children}) => {
   return (
@@ -19,19 +20,7 @@ const Navbar = ({children}) => {
                 className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               >
                 <span className="sr-only">Open sidebar</span>
-                <svg
-                  className="w-6 h-6"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clipRule="evenodd"
-                    fillRule="evenodd"
-                    d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
-                  ></path>
-                </svg>
+                <Mobilenav />
               </button>
               <Link href="/" className="flex ml-2 md:mr-24">
                 <img
@@ -57,7 +46,8 @@ const Navbar = ({children}) => {
 
       <aside
         id="logo-sidebar"
-        className="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+        className="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full
+         bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
         aria-label="Sidebar"
       >
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
@@ -87,15 +77,23 @@ const Navbar = ({children}) => {
               >
                <FaConnectdevelop />
                 <span className="ml-3">Get in touch</span>
+                
+              </Link>
+            </li>
+            <li>
+            <Link
+                href="https://paypal.me/apexa1?country.x=JO&locale.x=en_US"
+                target={"_blank"}
+                className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg
+                 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 bg-blue-500 duration-200 ease-linear"
+              >
+               <FaPaypal />
+                <span className="ml-3">Donate with Paypal</span>
               </Link>
             </li>
           </ul>
         </div>
-        <div className="pb-4">
-          <div className="w-44 text-xl z-50">
-            <h1>Donate</h1>
-          </div>
-        </div>
+       
       </aside>
         <div className="p-4 sm:ml-64">
         <div className="p-4 mt-24  rounded-lg">
