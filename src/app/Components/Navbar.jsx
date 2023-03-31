@@ -1,14 +1,15 @@
 'use client'
 
 import Link from "next/link";
-import { FaConnectdevelop, FaEye, FaPaypal } from "react-icons/fa";
+import { FaPaypal } from "react-icons/fa";
 import { SiOpenai } from "react-icons/si";
 import { HiMenuAlt4 } from 'react-icons/hi';
 import { IoClose } from 'react-icons/io5';
 import Theme from "./Theme";
 import { useState, useEffect } from "react";
 import { Spinner } from "flowbite-react";
-
+import { RiEye2Line } from 'react-icons/ri';
+import { MdOutlineConnectWithoutContact } from 'react-icons/md';
 
 const Navbar = ({children}) => {
   const [isOpen, setOpen] = useState(false)
@@ -76,7 +77,7 @@ const Navbar = ({children}) => {
         : "fixed top-0 left-0 z-40 w-64 h-screen pt-20 bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"}
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+        <div className="h-full mt-2 px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
           <ul className="space-y-2">
             <li>
               <Link
@@ -92,7 +93,7 @@ const Navbar = ({children}) => {
                 href="/image"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-               <FaEye />
+               <RiEye2Line />
                 <span className="ml-3">Image generator</span>
               </Link>
             </li>
@@ -101,7 +102,7 @@ const Navbar = ({children}) => {
                 href="/connect"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-               <FaConnectdevelop />
+               <MdOutlineConnectWithoutContact />
                 <span className="ml-3">Get in touch</span>
                 
               </Link>
