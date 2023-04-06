@@ -8,14 +8,14 @@ const configuration = new Configuration({
 
 export async function POST(request){
     const resault = await request.json();
-    const { question, history } = resault;
+    const { question } = resault;
     const openai = new OpenAIApi(configuration);
     const response = await openai.createImage({
     prompt: question,
     n: 2,
     size: "1024x1024",
     });
-  const images =  response.data.data;
+  const images = response.data.data;
   return NextResponse.json({message: images})
 
 }

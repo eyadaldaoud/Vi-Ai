@@ -50,8 +50,8 @@ const Navbar = ({children}) => {
               </button>}
               
               <Link href="/" className="flex ml-2 md:mr-24 mt-2">
-              <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-5xl">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r to-indigo-700 from-purple-500">Violet</span>
+              <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-5xl">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r to-indigo-700 from-purple-500">Violet</span>
               </h1>
               </Link>
             </div>
@@ -91,6 +91,15 @@ const Navbar = ({children}) => {
               >
                <RiEye2Line />
                 <span className="ml-3">DALL-E</span>
+              </Link>
+            </li>
+            <li>
+            <Link
+                href="/dream"
+                className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+               <RiEye2Line />
+                <span className="ml-3">DREAM</span>
               </Link>
             </li>
             <li>
