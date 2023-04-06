@@ -10,7 +10,8 @@ import { useState, useEffect } from "react";
 import { Spinner } from "flowbite-react";
 import { RiEye2Line } from 'react-icons/ri';
 import { MdOutlineConnectWithoutContact } from 'react-icons/md';
-
+import { BsGithub } from "react-icons/bs";
+import { GiTreeRoots } from 'react-icons/gi'
 const Navbar = ({children}) => {
   const [isOpen, setOpen] = useState(false)
   const [isLoading, setLoading] = useState(true)
@@ -48,15 +49,10 @@ const Navbar = ({children}) => {
                   
               </button>}
               
-              <Link href="/" className="flex ml-2 md:mr-24">
-                <img
-                  src="https://th.bing.com/th/id/OIG.s5viykXLbQf3fhOYX14O?pid=ImgGn"
-                  className="h-10 mr-3 rounded-2xl"
-                  alt="FlowBite Logo"
-                />
-                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
-                  Vi-Ai 
-                </span>
+              <Link href="/" className="flex ml-2 md:mr-24 mt-2">
+              <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-5xl">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r to-indigo-700 from-purple-500">Violet</span>
+              </h1>
               </Link>
             </div>
             <div className="flex items-center">
@@ -77,7 +73,7 @@ const Navbar = ({children}) => {
         : "fixed top-0 left-0 z-40 w-64 h-screen pt-20 bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"}
         aria-label="Sidebar"
       >
-        <div className="h-full mt-2 px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+        <div className="h-full mt-8 px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
           <ul className="space-y-2">
             <li>
               <Link
@@ -94,7 +90,7 @@ const Navbar = ({children}) => {
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                <RiEye2Line />
-                <span className="ml-3">Image generator</span>
+                <span className="ml-3">DALL-E</span>
               </Link>
             </li>
             <li>
@@ -109,18 +105,36 @@ const Navbar = ({children}) => {
             </li>
             <li>
             <Link
-                href="https://paypal.me/apexa1?country.x=JO&locale.x=en_US"
-                target={"_blank"}
-                className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg
-                 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 bg-blue-500 duration-200 ease-linear"
+                href="https://github.com/UGoingNoWhereBoy/Vi-Ai"
+                target="_blank" className="rounded-md flex items-center p-2 text-base font-semibold text-white bg-indigo-600 hover:bg-indigo-900 hover:text-indigo-300 ease-linear duration-150"
               >
-               <FaPaypal />
-                <span className="ml-3">Donate with Paypal</span>
+               <BsGithub className="text-xl" />
+                <span className="ml-3">View on Github</span>
+                
               </Link>
             </li>
+            <li>
+            <Link
+                href="https://emberium.myshopify.com/"
+                target="_blank" className="rounded-md flex items-center p-2 text-base text-black font-semibold bg-amber-500 hover:bg-amber-900 hover:text-amber-300 ease-linear duration-150"
+              >
+               <GiTreeRoots className="text-xl" />
+                <span className="ml-3">Emberium</span>
+                
+              </Link>
+            </li>
+            <li>
+            <Link
+                href="https://paypal.me/apexa1?country.x=JO&locale.x=en_US"
+                target="_blank" className="rounded-md flex items-center p-2 text-base text-white font-semibold bg-sky-500 hover:bg-sky-900 hover:text-sky-300 ease-linear duration-150"
+              >
+               <FaPaypal className="text-xl" />
+                <span className="ml-3">Donate with Paypal</span> 
+              </Link>
+            </li>
+          
           </ul>
         </div>
-       
       </aside>
         <div className="p-4 sm:ml-64">
         <div className="mt-24  rounded-lg">

@@ -3,8 +3,8 @@ import Navbar from './Components/Navbar'
 import './globals.css'
 
 export const metadata = {
-  title: 'Vi Ai',
-  description: 'Your ai tool for getting answers and pictures',
+  title: 'Violet AI',
+  description: 'Your Ai assistant and image generator',
 }
 
 export default function RootLayout({ children }) {
