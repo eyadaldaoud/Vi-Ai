@@ -77,7 +77,6 @@ export default function Home() {
 
     // Reset user input
     const data = await response.json();
-    console.log(data.message.photo_url_list)
 
     setMessages((prevMessages) => [
       ...prevMessages,
