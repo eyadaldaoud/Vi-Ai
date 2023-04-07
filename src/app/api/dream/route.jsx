@@ -5,7 +5,13 @@ export async function POST(request){
     const result = await request.json();
     const { question , style } = result;
     const response = await WomboDream.generateImage(style, question);
-    const images =  response;
-    return NextResponse.json({message: images})
+    const images =  await response;
 
+    const responseBody = { message: images };
+    return new NextResponse(JSON.stringify(responseBody), {
+        status: 200,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
 }

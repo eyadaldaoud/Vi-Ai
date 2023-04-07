@@ -200,6 +200,7 @@ export default function Home() {
                       alt="Ai-Image"
                     />
                     <ImSpinner10 className="animate-spin text-2xl mt-auto mb-auto ml-4"/>
+                    <h1 className="mt-auto mb-auto ml-2">This may take up to 3 minutes, Please hold.</h1>
                 </div>
               : null }
           </div>
