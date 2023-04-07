@@ -7,11 +7,12 @@ import { HiMenuAlt4 } from 'react-icons/hi';
 import { IoClose } from 'react-icons/io5';
 import Theme from "./Theme";
 import { useState, useEffect } from "react";
-import { Spinner } from "flowbite-react";
+import { ImSpinner2 } from 'react-icons/im'
 import { RiEye2Line } from 'react-icons/ri';
 import { MdOutlineConnectWithoutContact } from 'react-icons/md';
 import { BsGithub } from "react-icons/bs";
 import { GiTreeRoots } from 'react-icons/gi'
+import { BsImages } from 'react-icons/bs'
 const Navbar = ({children}) => {
   const [isOpen, setOpen] = useState(false)
   const [isLoading, setLoading] = useState(true)
@@ -31,7 +32,7 @@ const Navbar = ({children}) => {
                 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
                <span className="relative px-1 py-1 transition-all ease-in duration-75 bg-white
                 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                   <Spinner />
+                   <ImSpinner2  className="animate-spin"/>
                </span>
            
                </button>: 
@@ -98,8 +99,8 @@ const Navbar = ({children}) => {
                 href="/dream"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-               <RiEye2Line />
-                <span className="ml-3">DREAM</span>
+               <BsImages />
+                <span className="ml-3">DREAM-AI</span>
               </Link>
             </li>
             <li>

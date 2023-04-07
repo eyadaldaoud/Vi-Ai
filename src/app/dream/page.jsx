@@ -2,23 +2,53 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { BsSend } from "react-icons/bs";
-import { FaSpinner } from "react-icons/fa";
+import { ImSpinner10, ImSpinner2 } from 'react-icons/im'
+
+const Styles = [
+  {
+    name: "Unrealistic",
+    picture: "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/photorealism.jpg",
+    id: 89,
+  },
+  {
+    name: "Cartoonist",
+    picture: "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/cartoonist_v2.jpg",
+    id: 90,
+  },
+  {
+    name: "Flora",
+    picture: "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/floralv2.jpg",
+    id: 81,
+  },
+  {
+    name: "Buliojourney",
+    picture: "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/buliojourney_v2.jpg",
+    id: 84,
+  },
+  {
+    name: "Anime",
+    picture: "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/animev2.jpg",
+    id: 80,
+  },
+]
+
 
 export default function Home() {
   const [currentPrompt, setCurrentPrompt] = useState("");
   const [chatLog, setChatLog] = useState([{}]);
   const [loading, setLoading] = useState(false);
   const [isMounting, setMounting] = useState(true);
-  const [imageUpdate, setImageUpdate] = useState()
+  const [styleID, setStyleID] = useState(89)
   const [messages, setMessages] = useState([
     {
-      content: "Hello im Violet, im here to turn your text into an image.",
+      content: "Hello im Violet, get started by picking a style and writing a prompt.",
       role: "assistant",
     },
   ]);
 
   const messageListRef = useRef(null);
   const textAreaRef = useRef(null);
+
 
   const handleError = () => {
     setMessages((prevMessages) => [
@@ -48,7 +78,7 @@ export default function Home() {
 
   useEffect(() => {
     textAreaRef.current.focus();
-    setMounting(false);
+    setMounting(false); 
   }, []);
 
   const handleSubmit = async (e) => {
@@ -67,7 +97,7 @@ export default function Home() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ question: currentPrompt, history: messages }),
+      body: JSON.stringify({ question: currentPrompt, style: styleID }),
     });
 
     if (!response.ok) {
@@ -82,8 +112,8 @@ export default function Home() {
       ...prevMessages,
       {
         content: `Images of ${currentPrompt}`,
-        img: data.message.result.final,
-        imgUpdates: data.message.photo_url_list,
+        img: data.message?.result?.final,
+        imgUpdates: data?.message?.photo_url_list,
         role: "assistant",
       },
     ]);
@@ -102,15 +132,10 @@ export default function Home() {
                 ~Refreshing the page or moving to another page will cause data
                 loss
               </li>
-              <li>~Each prompt costs, use when needed.</li>
               <li>
-                ~If you got an error sumbiting your prompt that means the api
-                ran out of credits.
+                ~The project is open source, you can clone it and modify it.
               </li>
-              <li>
-                ~The project is open source, you can clone it and add your own
-                api key.
-              </li>
+              <li>~This is a free to use api by Wombo DreamAi.</li>
             </ol>
         </div>
         <div className="sm:p-4 sm:border-2 rounded-lg  dark:border-gray-700">
@@ -135,12 +160,14 @@ export default function Home() {
                             <>
                                 <div className="flex lg:overflow-hidden overflow-x-scroll overflow-y-hidden justify-center p-2">
                                 
-                                    {msg?.imgUpdates?.map(singleUpdate => (
-                                        <Image width={100} height={100} src={singleUpdate} className="w-24 h-24"/>
+                                    {msg?.imgUpdates?.map((singleUpdate, k) => (
+                                        <Image key={k} width={100} height={100} src={singleUpdate}
+                                        alt="image-updates" className="w-24 h-24"/>
                                     ))}
                                 </div>
                                 <div className="p-2 justify-center flex">
-                                    <Image width={1080} height={1920} src={msg?.img} className="lg:w-[500px] lg:h-[500px]"/>
+                                    <Image width={1080} height={1920} src={msg?.img}
+                                    alt="final-image" className="lg:w-[500px] lg:h-[500px]"/>
                                 </div> 
                             </>
                         : null} 
@@ -163,6 +190,18 @@ export default function Home() {
                 )}
               </div>
             ))}
+            {loading ? 
+                <div className="flex min-h-10 dark:bg-gray-800 bg-slate-300 rounded-xl mb-2 animate-pulse duration-75">
+                    <Image
+                      className="w-14 h-14 rounded-tl-xl"
+                      width={600}
+                      height={800}
+                      src="/ai.png"
+                      alt="Ai-Image"
+                    />
+                    <ImSpinner10 className="animate-spin text-2xl mt-auto mb-auto ml-4"/>
+                </div>
+              : null }
           </div>
           <form onSubmit={handleSubmit} className="flex">
             <div className="flex w-[100%]">
@@ -194,7 +233,7 @@ export default function Home() {
             >
               <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                 {isMounting || loading ? (
-                  <FaSpinner className="animate-spin" />
+                  <ImSpinner2 className="animate-spin" />
                 ) : (
                   <BsSend />
                 )}
@@ -213,6 +252,18 @@ export default function Home() {
             >
               {currentPrompt.length} of 200
             </button>
+          </div>
+          <div className="flex flex-wrap justify-center">
+              {Styles.map((item, k) => (
+                  <div key={k} className={styleID == item.id ?
+                  `block p-2 m-2 dark:hover:bg-slate-700 hover:bg-slate-400 cursor-pointer
+                   duration-150 ease-linear rounded-lg bg-slate-700 text-white scale-110`
+                  :`block p-2 m-2 dark:hover:bg-slate-700 hover:bg-slate-400 cursor-pointer
+                    duration-150 ease-linear rounded-lg`} onClick={() => setStyleID(item.id)}>
+                    <h1 className="text-center">{item.name}</h1>
+                    <img src={item.picture} className="h-24 w-24"/>
+                  </div>
+                ))}
           </div>
         </div>
       </div>
