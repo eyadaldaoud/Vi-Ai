@@ -8,11 +8,11 @@ const Styles = [
   {
     name: "Unrealistic",
     picture: "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/photorealism.jpg",
-    id: 89,
+    id: 79,
   },
   {
-    name: "Cartoonist",
-    picture: "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/cartoonist_v2.jpg",
+    name: "VFX",
+    picture: "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/vfxv2_thumbnail.jpg",
     id: 90,
   },
   {
@@ -26,9 +26,9 @@ const Styles = [
     id: 84,
   },
   {
-    name: "Anime",
-    picture: "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/animev2.jpg",
-    id: 80,
+    name: "The Cut",
+    picture: "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/the_cut.jpg",
+    id: 95,
   },
 ]
 
