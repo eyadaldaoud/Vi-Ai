@@ -8,7 +8,7 @@ const Styles = [
   {
     name: "Unrealistic",
     picture: "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/photorealism.jpg",
-    id: 79,
+    id: 89,
   },
   {
     name: "VFX",
