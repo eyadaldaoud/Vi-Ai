@@ -13,7 +13,7 @@ const Styles = [
   {
     name: "VFX",
     picture: "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/vfxv2_thumbnail.jpg",
-    id: 90,
+    id: 79,
   },
   {
     name: "Flora",
