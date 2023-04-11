@@ -150,7 +150,7 @@ export default function Home() {
                       className="w-14 h-14 rounded-tl-xl"
                       width={600}
                       height={800}
-                      src="/user.jpg"
+                      src="/user.webp"
                       alt="User-Image"
                     />
                     <h3 className="text-md mt-auto mb-auto ml-2">
