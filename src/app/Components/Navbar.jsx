@@ -172,7 +172,7 @@ const Navbar = ({children}) => {
       </aside>
         <div className="p-4 sm:ml-64"> 
         <div className="mt-24  rounded-lg">        
-        <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-3xl border-2 p-4 text-center rounded-xl border-gray-700">
+        <h1 className="mb-4 text-3xl font-extrabold font-serif text-gray-900 dark:text-white md:text-5xl lg:text-3xl border-2 p-4 text-center rounded-xl border-gray-700">
           <span className="text-transparent bg-clip-text bg-gradient-to-r to-red-800 from-red-600">Now using vercel paid membership to allow longer response time.</span></h1>
             {children}
         </div>
