@@ -6,16 +6,6 @@ import { ImSpinner10, ImSpinner2 } from 'react-icons/im'
 
 const Styles = [
   {
-    name: "Unrealistic",
-    picture: "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/photorealism.jpg",
-    id: 89,
-  },
-  {
-    name: "VFX",
-    picture: "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/vfxv2_thumbnail.jpg",
-    id: 79,
-  },
-  {
     name: "Flora",
     picture: "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/floralv2.jpg",
     id: 81,
