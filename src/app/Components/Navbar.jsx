@@ -149,16 +149,6 @@ const Navbar = ({children}) => {
             </li>
             <li>
             <Link
-                href="https://emberium.myshopify.com/"
-                target="_blank" className="rounded-md flex items-center p-2 text-base text-black font-semibold bg-amber-500 hover:bg-amber-900 hover:text-amber-300 ease-linear duration-150"
-              >
-               <GiTreeRoots className="text-xl" />
-                <span className="ml-3">Emberium</span>
-                
-              </Link>
-            </li>
-            <li>
-            <Link
                 href="https://paypal.me/apexa1?country.x=JO&locale.x=en_US"
                 target="_blank" className="rounded-md flex items-center p-2 text-base text-white font-semibold bg-sky-500 hover:bg-sky-900 hover:text-sky-300 ease-linear duration-150"
               >
