@@ -2,9 +2,9 @@
 import { Spinner } from 'flowbite-react';
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react';
-import {BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs'
+import {BsFillMoonStarsFill, BsFillSunFill, BsMoon, BsMoonStars, BsSun } from 'react-icons/bs'
 const Theme = () => {
-  const {setTheme, theme, system} = useTheme();
+  const {setTheme, theme} = useTheme();
   const [loading, setLoading] = useState(true)
   const Themestate = theme === 'dark' ? 'dark' : 'light';
   useEffect(() => {
@@ -36,7 +36,7 @@ const Theme = () => {
         focus:ring-purple-200 dark:focus:ring-purple-800">
         <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white
          dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-            {Themestate === 'dark' ? <BsFillMoonStarsFill    /> : <BsFillSunFill/>}
+            {Themestate === 'dark' ? <BsMoonStars className='text-lg'/> : <BsSun className='text-lg'/>}
         </span>
         </button>
     </div>

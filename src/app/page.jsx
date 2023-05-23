@@ -92,15 +92,10 @@ export default function Home() {
           role="alert"
         >
           <ol>
-            <li>
-              ~Refreshing the page or moving to another page will cause data
-              loss
+          <li>
+              ~Refreshing the page or moving to another page will erase your chat history.
             </li>
             <li>~Each prompt costs, use when needed.</li>
-            <li>
-              ~If you got an error sumbiting your prompt that means the api ran
-              out of credits.
-            </li>
             <li>
               ~The project is open source, you can clone it and add your own api
               key.
@@ -114,10 +109,10 @@ export default function Home() {
                 {msg.role === "assistant" ? (
                   <div className="flex min-h-10 dark:bg-gray-800 bg-slate-300 rounded-xl">
                     <Image
-                      className="w-14 h-14 rounded-tl-xl"
+                      className="w-14 h-auto rounded-tl-xl"
                       width={600}
                       height={800}
-                      src="/ai.png"
+                      src="https://th.bing.com/th/id/OIG.lodndXX4dr6CqN0hXlx0?pid=ImgGn"
                       alt="Ai-Image"
                     />
                     <h3 className="text-md mt-auto mb-auto ml-2 p-2">
@@ -129,8 +124,8 @@ export default function Home() {
                     <Image
                       width={600}
                       height={800}
-                      className="w-14 h-14 rounded-tl-xl"
-                      src="/user.webp"
+                      className="w-14 h-auto rounded-tl-xl"
+                      src="https://th.bing.com/th/id/OIG.xfQKPOiZZg7VJKpnkQ6E?pid=ImgGn"
                       alt="User-Image"
                     />
                     <h3 className="text-md mt-auto mb-auto ml-2 p-2">
@@ -140,19 +135,22 @@ export default function Home() {
                 )}
               </div>
             ))}
-              {loading ? 
-                <div className="flex min-h-10 dark:bg-gray-800 bg-slate-300 rounded-xl mb-2 animate-pulse duration-75">
-                    <Image
-                      className="w-14 h-14 rounded-tl-xl"
-                      width={600}
-                      height={800}
-                      src="/ai.png"
-                      alt="Ai-Image"
-                    />
-                    <ImSpinner10 className="animate-spin text-2xl mt-auto mb-auto ml-4"/>
-                    <h1 className="mt-auto mb-auto ml-2">Please hold.</h1>
-                </div>
-              : null }
+            {loading ? (
+              <div
+                className="flex min-h-10 dark:bg-gray-800 bg-slate-300 rounded-xl mb-2 animate-pulse"
+                style={{ animationDuration: "500ms" }}
+              >
+                <Image
+                  className="w-14 h-14 rounded-tl-xl"
+                  width={600}
+                  height={800}
+                  src="https://th.bing.com/th/id/OIG.lodndXX4dr6CqN0hXlx0?pid=ImgGn"
+                  alt="Ai-Image"
+                />
+                <ImSpinner10 className="animate-spin text-2xl mt-auto mb-auto ml-4" />
+                <h1 className="mt-auto mb-auto ml-2">Generating response...</h1>
+              </div>
+            ) : null}
           </div>
           <form onSubmit={handleSubmit} className="flex">
             <div className="w-[100%] flex">
@@ -183,11 +181,11 @@ export default function Home() {
                 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 
                 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-2"
             >
-                {isMounting || loading ? (
-                  <ImSpinner2 className="animate-spin text-lg" />
-                ) : (
-                  <BsSend className="text-lg"/>
-                )}
+              {isMounting || loading ? (
+                <ImSpinner2 className="animate-spin text-lg" />
+              ) : (
+                <BsSend className="text-lg" />
+              )}
             </button>
           </form>
           <div className="flex justify-center mt-4">

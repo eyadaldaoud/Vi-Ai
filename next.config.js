@@ -8,7 +8,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.wombo.art',
+        hostname: 'th.bing.com',
       }
     ]
   }
