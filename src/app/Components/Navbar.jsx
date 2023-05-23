@@ -118,15 +118,7 @@ const Navbar = ({children}) => {
                 <span className="ml-3">DALL-E</span>
               </Link>
             </li>
-            <li>
-            <Link
-                href="/dream"
-                className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-              >
-               <BsImages />
-                <span className="ml-3">DREAM-AI</span>
-              </Link>
-            </li>
+           
             <li>
             <Link
                 href="/connect"

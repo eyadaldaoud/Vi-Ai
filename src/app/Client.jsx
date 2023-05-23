@@ -5,7 +5,7 @@ import { Analytics } from '@vercel/analytics/react';
 
 const Client = ({ children }) => {
   return (
-    <ThemeProvider attribute="class" enableSystem>
+    <ThemeProvider attribute="class" enableSystem defaultTheme='system'>
         {children}
         <Analytics />
     </ThemeProvider>
