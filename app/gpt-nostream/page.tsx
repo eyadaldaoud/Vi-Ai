@@ -1,30 +1,28 @@
 "use client";
+
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-import { BsSend } from "react-icons/bs";
+import { useEffect, useState } from "react";
+import { BsFillSendFill } from "react-icons/bs";
 import { ImSpinner10, ImSpinner2 } from "react-icons/im";
 
-export default function Home() {
+export default function page() {
   const [currentPrompt, setCurrentPrompt] = useState("");
-  const [chatLog, setChatLog] = useState([{}]);
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const [isMounting, setMounting] = useState(true);
 
   const [messages, setMessages] = useState([
     {
-      content: "Hello i'm Violet, how can i help you today?",
+      content: "Hello, What questions do you have for me?",
       role: "assistant",
     },
   ]);
-
-  const messageListRef = useRef(null);
-  const textAreaRef = useRef(null);
 
   const handleError = () => {
     setMessages((prevMessages) => [
       ...prevMessages,
       {
-        content: "Oops! There seems to be an error. Please try again.",
+        content:
+          "Oops! There seems to be an error. Please try again, check your console for details.",
         role: "assistant",
       },
     ]);
@@ -33,25 +31,10 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const messageList = messageListRef.current;
-    messageList.scrollTop = messageList.scrollHeight;
-
-    if (messages.length >= 3) {
-      setChatLog([
-        [
-          messages[messages.length - 2].message,
-          messages[messages.length - 1].message,
-        ],
-      ]);
-    }
-  }, [messages]);
-
-  useEffect(() => {
-    textAreaRef.current.focus();
     setMounting(false);
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setCurrentPrompt("");
     if (!currentPrompt.trim().match(/\S/)) {
@@ -75,7 +58,6 @@ export default function Home() {
       return;
     }
 
-    // Reset user input
     const data = await response.json();
     setMessages((prevMessages) => [
       ...prevMessages,
@@ -92,11 +74,12 @@ export default function Home() {
           role="alert"
         >
           <ol>
-          <li className="text-lg font-semibold mb-4">
-          ⚠ OpenAi limits request now, 3 requests / min.
+            <li className="text-lg font-semibold mb-4">
+              ⚠ OpenAi limits request now, 3 requests / min.
             </li>
-          <li>
-              ~Refreshing the page or moving to another page will erase your chat history.
+            <li>
+              ~Refreshing the page or moving to another page will erase your
+              chat history.
             </li>
             <li>~Each prompt costs, use when needed.</li>
             <li>
@@ -106,11 +89,11 @@ export default function Home() {
           </ol>
         </div>
         <div className="sm:p-4 sm:border-2 rounded-lg  dark:border-gray-700">
-          <div className="h-full" ref={messageListRef}>
+          <div className="h-full">
             {messages.map((msg, i) => (
               <div key={i} className="p-2">
                 {msg.role === "assistant" ? (
-                  <div className="flex min-h-10 dark:bg-gray-800 bg-slate-300 rounded-xl">
+                  <div className="flex min-h-10 dark:bg-gray-800 bg-slate-200 rounded-xl">
                     <Image
                       className="w-14 h-auto rounded-tl-xl"
                       width={600}
@@ -138,7 +121,7 @@ export default function Home() {
                 )}
               </div>
             ))}
-            {loading ? (
+            {isLoading ? (
               <div
                 className="flex min-h-10 dark:bg-gray-800 bg-slate-300 rounded-xl mb-2 animate-pulse"
                 style={{ animationDuration: "500ms" }}
@@ -158,52 +141,33 @@ export default function Home() {
           <form onSubmit={handleSubmit} className="flex">
             <div className="w-[100%] flex">
               <input
-                ref={textAreaRef}
                 type="text"
                 onChange={(e) => setCurrentPrompt(e.target.value)}
                 value={currentPrompt}
-                maxLength={200}
-                disabled={isMounting || loading ? true : false}
-                className="block w-full p-4 text-sm text-gray-900 border
-               border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500
-               focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
-                dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                disabled={isMounting || isLoading ? true : false}
+                className="block w-full px-4 py-3 bg-transparent rounded focus:border-indigo-500 duration-100 ease-linear"
                 placeholder={
-                  loading
+                  isLoading
                     ? "Please wait, response in progress."
                     : isMounting
                     ? "Page is loading"
-                    : "Speak your mind"
+                    : "What's on your mind?"
                 }
               />
             </div>
             <button
-              disabled={isMounting || loading ? true : false}
-              className="text-white bg-gradient-to-r from-purple-500 via-purple-600
-               to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300
-                dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 
-                font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-2"
+              disabled={isMounting || isLoading ? true : false}
+              className="border-2 px-4 ml-2 rounded dark:bg-white dark:hover:bg-black duration-150 ease-linear dark:text-black dark:hover:text-white
+              bg-black hover:bg-white text-white hover:text-black"
             >
-              {isMounting || loading ? (
+              {isMounting || isLoading ? (
                 <ImSpinner2 className="animate-spin text-lg" />
               ) : (
-                <BsSend className="text-lg" />
+                <BsFillSendFill className="text-lg" />
               )}
             </button>
           </form>
-          <div className="flex justify-center mt-4">
-            <button
-              type="button"
-              className={
-                currentPrompt.length < 200
-                  ? `text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2
-              dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800`
-                  : `text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900`
-              }
-            >
-              {currentPrompt.length} of 200
-            </button>
-          </div>
+          <div className="flex justify-center mt-4"></div>
         </div>
       </div>
     </>
