@@ -20,10 +20,6 @@ export default function Home() {
     setMounting(false);
   }, []);
 
-  if (isMounting) {
-    return <p>Loading...</p>;
-  }
-
   const generateResponse = async (e: any) => {
     e.preventDefault();
     setLoading(true);
