@@ -9,7 +9,7 @@ export default function Home() {
   const [isLoading, setLoading] = useState(false);
   const [isMounting, setMounting] = useState(true);
 
-  const [messages, setMessages] = useState([
+  const [messages, setMessages] = useState<any>([
     {
       content: "Hey, im here to turn your text into an image.",
       role: "assistant",
@@ -17,7 +17,7 @@ export default function Home() {
   ]);
 
   const handleError = () => {
-    setMessages((prevMessages) => [
+    setMessages((prevMessages: any) => [
       ...prevMessages,
       {
         content: "Oops! There seems to be an error. Please try again.",
@@ -38,7 +38,7 @@ export default function Home() {
     if (!currentPrompt.trim().match(/\S/)) {
       return;
     }
-    setMessages((prevMessages) => [
+    setMessages((prevMessages: any) => [
       ...prevMessages,
       { content: currentPrompt, role: "user" },
     ]);
@@ -59,7 +59,7 @@ export default function Home() {
     // Reset user input
     const data = await response.json();
 
-    setMessages((prevMessages) => [
+    setMessages((prevMessages: any) => [
       ...prevMessages,
       {
         content: `Images of ${currentPrompt}`,
@@ -91,7 +91,7 @@ export default function Home() {
         </div>
         <div className="sm:p-4 sm:border-2 rounded-lg  dark:border-gray-700">
           <div className="h-full">
-            {messages.map((msg, i) => (
+            {messages.map((msg: any, i: any) => (
               <div key={i} className="p-2">
                 {msg.role === "assistant" ? (
                   <div className="block">
