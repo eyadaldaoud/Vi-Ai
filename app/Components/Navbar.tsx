@@ -26,13 +26,13 @@ const FooterItems: FooterProps[] = [
     icon: <SiVercel className="text-lg ml-2 mt-auto mb-auto" />,
   },
   {
-    name: "Made By",
+    name: "Made with",
     text: "NextJS 13",
     to: "https://nextjs.org",
     icon: <SiNextdotjs className="text-lg ml-2 mt-auto mb-auto" />,
   },
   {
-    name: "Made By",
+    name: "Made by",
     text: "Eyad Zoubi",
     to: "https://www.linkedin.com/in/eyad-zoubi-93327b244/",
   },
