@@ -74,9 +74,7 @@ export default function page() {
           role="alert"
         >
           <ol>
-            <li className="text-lg font-semibold mb-4">
-              ⚠ OpenAi limits request now, 3 requests / min.
-            </li>
+          
             <li>
               ~Refreshing the page or moving to another page will erase your
               chat history.
