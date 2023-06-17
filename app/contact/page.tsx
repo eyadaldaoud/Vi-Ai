@@ -23,7 +23,7 @@ const links: LinksProps[] = [
   {
     name: "LinkedIn",
     icon: <FaLinkedin />,
-    to: "https://eyadsportfolio.vercel.app/",
+    to: "https://www.linkedin.com/in/eyad-zoubi-93327b244/",
   },
   { name: "Gmail", icon: <SiGmail />, to: "mailto:ugnw20@gmail.com" },
   {
