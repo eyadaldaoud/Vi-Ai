@@ -34,7 +34,7 @@ const FooterItems: FooterProps[] = [
   {
     name: "Made by",
     text: "Eyad Zoubi",
-    to: "https://www.linkedin.com/in/eyad-zoubi-93327b244/",
+    to: "https://eyad.vercel.app",
   },
 ];
 
