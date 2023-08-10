@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { FaPaypal } from "react-icons/fa";
-import { SiNextdotjs, SiOpenai, SiVercel } from "react-icons/si";
+import { SiNextdotjs, SiVercel } from "react-icons/si";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { IoClose, IoLogoVercel } from "react-icons/io5";
 import Theme from "./Theme";
 import { useState, useEffect } from "react";
 import { ImSpinner2 } from "react-icons/im";
 import { BsGithub } from "react-icons/bs";
+import { AiOutlineWarning } from "react-icons/ai";
 import Navlinks from "./Navlinks";
 
 interface FooterProps {
@@ -30,11 +31,6 @@ const FooterItems: FooterProps[] = [
     text: "NextJS 13",
     to: "https://nextjs.org",
     icon: <SiNextdotjs className="text-lg ml-2 mt-auto mb-auto" />,
-  },
-  {
-    name: "Made by",
-    text: "Eyad Zoubi",
-    to: "https://eyad.vercel.app",
   },
 ];
 
@@ -88,12 +84,38 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
             </div>
 
             <div className="flex items-center">
-              <div className="flex items-center ml-3 mt-2">
+              <div className="flex items-center ml-3 mt-2 flex-wrap">
+                <div
+                  className="mr-2 border py-0.5 px-2 rounded border-red-500 hover:bg-red-100 hover:dark:bg-red-900 ease-linear 
+                duration-100 animate-pulse mt-auto mb-auto sm:flex hidden"
+                >
+                  <AiOutlineWarning className="text-red-500 mt-auto mb-auto mr-2" />
+                  <Link
+                    href={"https://github.com/UGoingNoWhereBoy/Vi-Ai"}
+                    target="_blank"
+                    className="text-red-500"
+                  >
+                    UPDATE API KEY
+                  </Link>
+                </div>
                 <div>
                   <Theme />
                 </div>
               </div>
             </div>
+          </div>
+          <div
+            className="mr-2 border py-0.5 px-2 rounded border-red-500 hover:bg-red-100 hover:dark:bg-red-900 ease-linear 
+                duration-100 animate-pulse mt-2 mb-auto sm:hidden flex"
+          >
+            <AiOutlineWarning className="text-red-500 mt-auto mb-auto mr-2" />
+            <Link
+              href={"https://github.com/UGoingNoWhereBoy/Vi-Ai"}
+              target="_blank"
+              className="text-red-500"
+            >
+              UPDATE API KEY
+            </Link>
           </div>
         </div>
       </nav>
