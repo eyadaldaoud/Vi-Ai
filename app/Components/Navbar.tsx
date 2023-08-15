@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { FaPaypal } from "react-icons/fa";
-import { SiNextdotjs, SiVercel } from "react-icons/si";
+import { SiBuymeacoffee, SiNextdotjs, SiVercel } from "react-icons/si";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { IoClose, IoLogoVercel } from "react-icons/io5";
 import Theme from "./Theme";
@@ -18,21 +18,6 @@ interface FooterProps {
   to: string;
   icon?: any;
 }
-
-const FooterItems: FooterProps[] = [
-  {
-    name: "Deployed on",
-    text: "Vercel",
-    to: "https://vercel.com",
-    icon: <SiVercel className="text-lg ml-2 mt-auto mb-auto" />,
-  },
-  {
-    name: "Made with",
-    text: "NextJS 13",
-    to: "https://nextjs.org",
-    icon: <SiNextdotjs className="text-lg ml-2 mt-auto mb-auto" />,
-  },
-];
 
 const Navbar = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setOpen] = useState(false);
@@ -133,6 +118,16 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
             <Navlinks />
             <li>
               <Link
+                href="https://www.buymeacoffee.com/eyadzoubi4n"
+                target="_blank"
+                className="rounded-md flex items-center p-2  font-semibold hover:bg-yellow-600 bg-yellow-400 text-black  ease-linear duration-150"
+              >
+                <SiBuymeacoffee className="text-xl" />
+                <span className="ml-3">Buy me a coffee</span>
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="https://github.com/UGoingNoWhereBoy/Vi-Ai"
                 target="_blank"
                 className="rounded-md flex items-center p-2 text-base font-semibold text-white bg-indigo-600 hover:bg-indigo-900 hover:text-indigo-300 ease-linear duration-150"
@@ -141,32 +136,7 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
                 <span className="ml-3">Give it a star</span>
               </Link>
             </li>
-            <li>
-              <Link
-                href="https://paypal.me/apexa1?country.x=JO&locale.x=en_US"
-                target="_blank"
-                className="rounded-md flex items-center p-2 text-base text-white font-semibold bg-sky-500 hover:bg-sky-900 hover:text-sky-300 ease-linear duration-150"
-              >
-                <FaPaypal className="text-xl" />
-                <span className="ml-3">Donate with Paypal</span>
-              </Link>
-            </li>
           </ul>
-          <div className="mt-4">
-            {FooterItems.map((i, k) => (
-              <Link
-                href={i.to}
-                target={"_blank"}
-                className="flex font-sans mb-2 border px-2 py-2 rounded dark:bg-white dark:hover:bg-black duration-100 ease-linear dark:text-black dark:hover:text-white
-                bg-black hover:bg-white text-white hover:text-black"
-                key={k}
-              >
-                <h1 className="text-md mt-auto mb-auto">{i.name}</h1>
-                {i.icon}
-                <span className="self-center text-lg ml-2">{i.text}</span>
-              </Link>
-            ))}
-          </div>
         </div>
       </aside>
       <div className="p-4 sm:ml-64">
