@@ -116,16 +116,7 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
         <div className="h-full mt-8 px-3 pb-4 overflow-y-auto bg-white dark:bg-black">
           <ul className="space-y-2">
             <Navlinks />
-            <li>
-              <Link
-                href="https://www.buymeacoffee.com/eyadzoubi4n"
-                target="_blank"
-                className="rounded-md flex items-center p-2  font-semibold hover:bg-yellow-600 bg-yellow-400 text-black  ease-linear duration-150"
-              >
-                <SiBuymeacoffee className="text-xl" />
-                <span className="ml-3">Buy me a coffee</span>
-              </Link>
-            </li>
+            
             <li>
               <Link
                 href="https://github.com/UGoingNoWhereBoy/Vi-Ai"
