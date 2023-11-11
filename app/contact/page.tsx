@@ -1,7 +1,8 @@
 import Link from "next/link";
 import React from "react";
-import { FaDiscord, FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
+import {  FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
+import { ImProfile } from "react-icons/im";
 
 interface LinksProps {
   name: string;
@@ -13,7 +14,7 @@ const links: LinksProps[] = [
   {
     name: "Facebook",
     icon: <FaFacebook />,
-    to: "https://web.facebook.com/UGoingNoWhereBoy/",
+    to: "https://web.facebook.com/ugnwb/",
   },
   {
     name: "Github",
@@ -27,9 +28,9 @@ const links: LinksProps[] = [
   },
   { name: "Gmail", icon: <SiGmail />, to: "mailto:ugnw20@gmail.com" },
   {
-    name: "Discord",
-    icon: <FaDiscord />,
-    to: "https://discord.com/users/UGoingNoWhereBoy#1736",
+    name: "Portfolio",
+    icon: <ImProfile />,
+    to: "https://eyad.vercel.app/",
   },
 ];
 
