@@ -4,13 +4,14 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BsFillSendFill } from "react-icons/bs";
 import { ImSpinner2 } from "react-icons/im";
-import ai_img from "../public/ai-img.jpg";
-import user_img from "../public/user-img.jpg";
+import ai_img from "../../public/ai-img.jpg";
+import user_img from "../../public/user-img.jpg";
 
 export default function Home() {
   const [isLoading, setLoading] = useState(false);
   const [isMounting, setMounting] = useState(true);
   const [prompt, setPrompt] = useState("");
+  const [SystemMessage, setSystemMessage] = useState("");
   const [messages, setMessages] = useState([
     {
       content: "Hello, What questions do you have for me?",
@@ -35,7 +36,7 @@ export default function Home() {
       return newMessages;
     });
 
-    const response = await fetch("/api/streaming", {
+    const response = await fetch("/api/lmstudio/stream", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,11 +44,14 @@ export default function Home() {
       body: JSON.stringify({
         prompt,
         history: messages,
+        SystemMessage,
       }),
     });
 
     if (!response.ok) {
-      throw new Error(response.statusText);
+      const Error_message: any = response.statusText.toString();
+      setPrompt(`${Error_message}! Make sure your local lm server is running.`);
+      return;
     }
 
     const data = response.body;
@@ -89,15 +93,27 @@ export default function Home() {
               ~Refreshing the page or moving to another page will erase your
               chat history.
             </li>
-            <li>~Each prompt costs, use when needed.</li>
-            <li>
-              ~The project is open source, you can clone it and add your own api
-              key.
-            </li>
+            <li>~Run it locally no need for internet connection or api key.</li>
+            <li>~The project is open source.</li>
           </ol>
         </div>
         <div className="sm:p-4 sm:border-2 rounded-lg dark:border-gray-800">
           <div className="h-full">
+            <input
+              type="text"
+              onChange={(e) => setSystemMessage(e.target.value)}
+              value={SystemMessage}
+              maxLength={200}
+              disabled={isMounting || isLoading ? true : false}
+              className="block w-full px-4 py-3 bg-transparent rounded focus:border-indigo-500 duration-100 ease-linear"
+              placeholder={
+                isLoading
+                  ? "Please wait, response in progress."
+                  : isMounting
+                  ? "Page is loading"
+                  : "System message (Custom Instructions)"
+              }
+            />
             {messages.map((msg, i) => (
               <div key={i} className="p-2">
                 {msg.role === "assistant" ? (

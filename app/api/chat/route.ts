@@ -25,3 +25,6 @@ export async function POST(request: NextRequest) {
 
   return NextResponse.json({ message: completion.data.choices[0].message })
 }
+
+
+

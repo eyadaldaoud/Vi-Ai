@@ -3,6 +3,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BsFillSendFill } from "react-icons/bs";
 import { ImSpinner10, ImSpinner2 } from "react-icons/im";
+import ai_img from "../../public/ai-img.jpg";
+import user_img from "../../public/user-img.jpg";
 
 export default function Home() {
   const [currentPrompt, setCurrentPrompt] = useState("");
@@ -100,7 +102,7 @@ export default function Home() {
                         className="w-14 h-auto rounded-tl-xl"
                         width={600}
                         height={800}
-                        src="https://th.bing.com/th/id/OIG.lodndXX4dr6CqN0hXlx0?pid=ImgGn"
+                        src={ai_img}
                         alt="Ai-Image"
                       />
                       <h3 className="text-md mt-auto mb-auto ml-2 p-2">
@@ -127,7 +129,7 @@ export default function Home() {
                       className="w-14 h-auto rounded-tl-xl"
                       width={600}
                       height={800}
-                      src="https://th.bing.com/th/id/OIG.xfQKPOiZZg7VJKpnkQ6E?pid=ImgGn"
+                      src={user_img}
                       alt="User-Image"
                     />
                     <h3 className="text-md mt-auto mb-auto ml-2">
@@ -146,7 +148,7 @@ export default function Home() {
                   className="w-14 h-14 rounded-tl-xl"
                   width={600}
                   height={800}
-                  src="https://th.bing.com/th/id/OIG.lodndXX4dr6CqN0hXlx0?pid=ImgGn"
+                  src={ai_img}
                   alt="Ai-Image"
                 />
                 <ImSpinner10 className="animate-spin text-2xl mt-auto mb-auto ml-4" />

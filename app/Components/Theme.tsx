@@ -42,23 +42,18 @@ const Theme = () => {
   }
   return (
     <div className="flex justify-content-center">
-      <div className="inline-flex rounded-2xl shadow-sm border dark:border-gray-600 border-gray-300 dark:bg-gray-800 bg-gray-100 backdrop-blur-xl">
+      <div className="inline-flex rounded-2xl shadow-sm border dark:border-gray-600 border-gray-300 dark:bg-gray-800 bg-gray-200">
         {themes.map((i, k) => (
           <button
+            onClick={() => setTheme(i.value)}
             key={k}
-            onClick={() => {
-              setTheme(i.value);
-            }}
+            className={`${
+              i.value == theme
+                ? "inline-flex items-center px-2 py-1.5 text-lg bg-transparent rounded-xl text-red-500 p-2 border border-red-500"
+                : "inline-flex items-center px-2 py-1.5 text-lg bg-transparent rounded-xl border-gray-900 p-2"
+            }`}
           >
-            <span
-              className={
-                i.value === theme
-                  ? "inline-flex items-center px-2 py-1.5 text-xl duration-100 ease-linear rounded-2xl border-gray-900 p-2 bg-gray-300 dark:bg-gray-600/70 text-cyan-500"
-                  : "inline-flex items-center px-2 py-1.5 text-xl hover:bg-gray-200 dark:hover:bg-gray-700 duration-100 ease-linear rounded-2xl border-gray-900 p-2"
-              }
-            >
-              {i.icon}
-            </span>
+            {i.icon}
           </button>
         ))}
       </div>

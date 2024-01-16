@@ -1,23 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { FaPaypal } from "react-icons/fa";
-import { SiBuymeacoffee, SiNextdotjs, SiVercel } from "react-icons/si";
 import { HiMenuAlt4 } from "react-icons/hi";
-import { IoClose, IoLogoVercel } from "react-icons/io5";
+import { IoClose } from "react-icons/io5";
 import Theme from "./Theme";
 import { useState, useEffect } from "react";
 import { ImSpinner2 } from "react-icons/im";
 import { BsGithub } from "react-icons/bs";
 import { AiOutlineWarning } from "react-icons/ai";
 import Navlinks from "./Navlinks";
-
-interface FooterProps {
-  name: string;
-  text: string;
-  to: string;
-  icon?: any;
-}
+import { BiAtom } from "react-icons/bi";
+import { SiBuymeacoffee, SiVercel } from "react-icons/si";
 
 const Navbar = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setOpen] = useState(false);
@@ -61,9 +54,11 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
               )}
 
               <Link href="/" className="flex ml-2 md:mr-24 mt-2">
-                <IoLogoVercel className="text-3xl mr-2" />
-                <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                  Eyad
+                <span className="animate-bounce">
+                  <SiVercel className="text-3xl mr-2  text-red-500  rotate-180" />
+                </span>
+                <span className="self-center text-2xl font-semibold whitespace-nowrap text-red-500">
+                  VI~AI
                 </span>
               </Link>
             </div>
@@ -80,7 +75,7 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
                     target="_blank"
                     className="text-red-500"
                   >
-                    UPDATE API KEY
+                    API KEY EXPIRED
                   </Link>
                 </div>
                 <div>
@@ -99,7 +94,7 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
               target="_blank"
               className="text-red-500"
             >
-              UPDATE API KEY
+              API KEY EXPIRED
             </Link>
           </div>
         </div>
@@ -116,7 +111,7 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
         <div className="h-full mt-8 px-3 pb-4 overflow-y-auto bg-white dark:bg-black">
           <ul className="space-y-2">
             <Navlinks />
-            
+
             <li>
               <Link
                 href="https://github.com/UGoingNoWhereBoy/Vi-Ai"
@@ -125,6 +120,16 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
               >
                 <BsGithub className="text-xl" />
                 <span className="ml-3">Give it a star</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://www.buymeacoffee.com/eyadzoubi"
+                target="_blank"
+                className="rounded-md flex items-center p-2 text-base font-semibold text-white bg-yellow-600 hover:bg-yellow-900 hover:text-yellow-300 ease-linear duration-150"
+              >
+                <SiBuymeacoffee className="text-xl" />
+                <span className="ml-3">Buy me a coffee</span>
               </Link>
             </li>
           </ul>

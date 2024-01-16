@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import {  FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import { ImProfile } from "react-icons/im";
 
@@ -11,11 +11,6 @@ interface LinksProps {
 }
 
 const links: LinksProps[] = [
-  {
-    name: "Facebook",
-    icon: <FaFacebook />,
-    to: "https://web.facebook.com/ugnwb/",
-  },
   {
     name: "Github",
     icon: <FaGithub />,

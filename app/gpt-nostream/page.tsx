@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BsFillSendFill } from "react-icons/bs";
 import { ImSpinner10, ImSpinner2 } from "react-icons/im";
+import ai_img from "../../public/ai-img.jpg";
+import user_img from "../../public/user-img.jpg";
 
 export default function page() {
   const [currentPrompt, setCurrentPrompt] = useState("");
@@ -74,7 +76,6 @@ export default function page() {
           role="alert"
         >
           <ol>
-          
             <li>
               ~Refreshing the page or moving to another page will erase your
               chat history.
@@ -93,10 +94,10 @@ export default function page() {
                 {msg.role === "assistant" ? (
                   <div className="flex min-h-10 dark:bg-gray-800 bg-slate-200 rounded-xl">
                     <Image
-                      className="w-14 h-auto rounded-tl-xl"
+                      className="w-14 h-16 rounded-tl-xl"
                       width={600}
-                      height={800}
-                      src="https://th.bing.com/th/id/OIG.lodndXX4dr6CqN0hXlx0?pid=ImgGn"
+                      height={600}
+                      src={ai_img}
                       alt="Ai-Image"
                     />
                     <h3 className="text-md mt-auto mb-auto ml-2 p-2">
@@ -109,7 +110,7 @@ export default function page() {
                       width={600}
                       height={800}
                       className="w-14 h-auto rounded-tl-xl"
-                      src="https://th.bing.com/th/id/OIG.xfQKPOiZZg7VJKpnkQ6E?pid=ImgGn"
+                      src={user_img}
                       alt="User-Image"
                     />
                     <h3 className="text-md mt-auto mb-auto ml-2 p-2">
@@ -127,8 +128,8 @@ export default function page() {
                 <Image
                   className="w-14 h-14 rounded-tl-xl"
                   width={600}
-                  height={800}
-                  src="https://th.bing.com/th/id/OIG.lodndXX4dr6CqN0hXlx0?pid=ImgGn"
+                  height={600}
+                  src={ai_img}
                   alt="Ai-Image"
                 />
                 <ImSpinner10 className="animate-spin text-2xl mt-auto mb-auto ml-4" />
