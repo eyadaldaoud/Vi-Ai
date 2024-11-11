@@ -122,16 +122,6 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
                 <span className="ml-3">Give it a star</span>
               </Link>
             </li>
-            <li>
-              <Link
-                href="https://www.buymeacoffee.com/eyadzoubi"
-                target="_blank"
-                className="rounded-md flex items-center p-2 text-base font-semibold text-white bg-yellow-600 hover:bg-yellow-900 hover:text-yellow-300 ease-linear duration-150"
-              >
-                <SiBuymeacoffee className="text-xl" />
-                <span className="ml-3">Buy me a coffee</span>
-              </Link>
-            </li>
           </ul>
         </div>
       </aside>
