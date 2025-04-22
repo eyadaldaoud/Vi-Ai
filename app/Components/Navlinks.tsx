@@ -17,10 +17,10 @@ interface LinksProps {
 
 const Navitems: LinksProps[] = [
   {
-    name: "Compound Beta",
+    name: "Groq",
     href: "/groq",
     icon: <IoGitNetworkSharp />,
-    description: "Llama 3.3 Model",
+    description: "Compound Beta Model",
   },
   {
     name: "LM Studio",
