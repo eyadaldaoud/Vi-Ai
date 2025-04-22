@@ -10,14 +10,14 @@ type Message = {
   content: string;
 };
 
-export default function GPTNoStreamPage() {
+export default function ChatGPTPage() {
   const [loading, setLoading] = useState(false);
   const [prompt, setPrompt] = useState("");
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
       content:
-        "Hello! I'm your AI assistant powered by GPT (No Stream). How can I help you today?",
+        "Hello! I'm your AI assistant powered by ChatGPT. How can I help you today?",
     },
   ]);
   const [error, setError] = useState<string | null>(null);
@@ -42,7 +42,7 @@ export default function GPTNoStreamPage() {
     setPrompt("");
 
     try {
-      const response = await fetch("/api/gpt-nostream", {
+      const response = await fetch("/api/chatgpt", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -54,7 +54,7 @@ export default function GPTNoStreamPage() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to get response from GPT API");
+        throw new Error("Failed to get response from ChatGPT API");
       }
 
       const data = await response.json();
@@ -87,7 +87,7 @@ export default function GPTNoStreamPage() {
             <p className="text-sm font-medium">API Key Required</p>
           </div>
           <p className="mt-2 text-sm text-yellow-700 dark:text-yellow-300">
-            This model requires an OpenAI API key. Please ensure you have set up
+            This model requires a ChatGPT API key. Please ensure you have set up
             your API key in the environment variables.
           </p>
         </div>

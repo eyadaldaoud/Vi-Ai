@@ -11,6 +11,7 @@ import { AiOutlineWarning } from "react-icons/ai";
 import Navlinks from "./Navlinks";
 import { BiAtom } from "react-icons/bi";
 import { SiBuymeacoffee, SiVercel } from "react-icons/si";
+import { motion } from "framer-motion";
 
 const Navbar = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setOpen] = useState(false);
@@ -54,48 +55,33 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
               )}
 
               <Link href="/" className="flex ml-2 md:mr-24 mt-2">
-                <span className="animate-bounce">
-                  <SiVercel className="text-3xl mr-2  text-red-500  rotate-180" />
-                </span>
-                <span className="self-center text-2xl font-semibold whitespace-nowrap text-red-500">
-                  VI~AI
-                </span>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-2"
+                >
+                  <div className="flex flex-col">
+                    <span className="self-center text-2xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">
+                      VI~AI
+                    </span>
+                    <span className="text-xs text-gray-500 dark:text-gray-400">
+                      Your AI Assistant
+                    </span>
+                  </div>
+                </motion.div>
               </Link>
             </div>
 
             <div className="flex items-center">
-              <div className="flex items-center ml-3 mt-2 flex-wrap">
-                <div
-                  className="mr-2 border py-0.5 px-2 rounded border-red-500 hover:bg-red-100 hover:dark:bg-red-900 ease-linear 
-                duration-100 animate-pulse mt-auto mb-auto sm:flex hidden"
+              <div className="flex items-center ml-3 mt-2">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <AiOutlineWarning className="text-red-500 mt-auto mb-auto mr-2" />
-                  <Link
-                    href={"https://github.com/UGoingNoWhereBoy/Vi-Ai"}
-                    target="_blank"
-                    className="text-red-500"
-                  >
-                    API KEY EXPIRED
-                  </Link>
-                </div>
-                <div>
                   <Theme />
-                </div>
+                </motion.div>
               </div>
             </div>
-          </div>
-          <div
-            className="mr-2 border py-0.5 px-2 rounded border-red-500 hover:bg-red-100 hover:dark:bg-red-900 ease-linear 
-                duration-100 animate-pulse mt-2 mb-auto sm:hidden flex"
-          >
-            <AiOutlineWarning className="text-red-500 mt-auto mb-auto mr-2" />
-            <Link
-              href={"https://github.com/UGoingNoWhereBoy/Vi-Ai"}
-              target="_blank"
-              className="text-red-500"
-            >
-              API KEY EXPIRED
-            </Link>
           </div>
         </div>
       </nav>

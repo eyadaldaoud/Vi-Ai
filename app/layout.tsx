@@ -16,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className && "dark:bg-black bg-white"}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} dark:bg-black bg-white`}>
         <Wrapper>
           <Navbar>{children}</Navbar>
         </Wrapper>

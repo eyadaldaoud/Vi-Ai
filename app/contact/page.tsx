@@ -1,67 +1,35 @@
-import Link from "next/link";
-import React from "react";
-import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
-import { SiGmail } from "react-icons/si";
-import { ImProfile } from "react-icons/im";
+"use client";
 
-interface LinksProps {
-  name: string;
-  icon: any;
-  to: string;
-}
+import { motion } from "framer-motion";
+import { BsArrowRight } from "react-icons/bs";
 
-const links: LinksProps[] = [
-  {
-    name: "Github",
-    icon: <FaGithub />,
-    to: "https://github.com/UGoingNoWhereBoy",
-  },
-  {
-    name: "LinkedIn",
-    icon: <FaLinkedin />,
-    to: "https://www.linkedin.com/in/eyad-zoubi-93327b244/",
-  },
-  { name: "Gmail", icon: <SiGmail />, to: "mailto:ugnw20@gmail.com" },
-  {
-    name: "Portfolio",
-    icon: <ImProfile />,
-    to: "https://eyad.vercel.app/",
-  },
-];
-
-const page = () => {
+export default function ContactPage() {
   return (
-    <div className="flex justify-center">
-      <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <div className="flex flex-col items-center pb-10">
-          <img
-            className="w-24 h-24 mb-3 rounded-full shadow-lg"
-            src="https://cdn.shopify.com/s/files/1/0724/2455/4805/files/ui.png?v=1676965944"
-            alt="Eyad's image"
-          />
-          <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-            Eyad Zoubi
-          </h5>
-          <span className="text-sm text-gray-500 dark:text-gray-400"></span>
-          <div className=" mt-4 space-x-3 md:mt-6">
-            {links.map((item, k) => (
-              <Link
-                key={k}
-                href={item.to}
-                target={"_blank"}
-                className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-xl font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white
-                  dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
-              >
-                <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                  {item.icon}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
+    <div className="min-h-[calc(100vh-4rem)] bg-gray-50 dark:bg-gray-900 flex items-center justify-center px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-center"
+      >
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Visit My Website
+        </h1>
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+          Check out my portfolio and get in touch!
+        </p>
+        <motion.a
+          href="https://eyad.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-200"
+        >
+          Go to Portfolio
+          <BsArrowRight className="ml-2" />
+        </motion.a>
+      </motion.div>
     </div>
   );
-};
-
-export default page;
+}
