@@ -1,6 +1,6 @@
 "use client";
 
-const { ThemeProvider } = require("next-themes");
+import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/react";
 
 const Client = ({ children }: { children: React.ReactNode }) => {
