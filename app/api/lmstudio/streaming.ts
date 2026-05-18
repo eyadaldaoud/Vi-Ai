@@ -1,4 +1,4 @@
-import { createParser, ParsedEvent, ReconnectInterval } from "eventsource-parser";
+import { createParser, EventSourceMessage } from "eventsource-parser";
 
 export async function Streaming(payload : any) {
   const encoder = new TextEncoder();
@@ -17,8 +17,8 @@ export async function Streaming(payload : any) {
 
   const stream = new ReadableStream({
     async start(controller) {
-      function onParse(event: ParsedEvent | ReconnectInterval) {
-        if (event.type === "event") {
+      function onParse(event: EventSourceMessage) {
+        if (event.data) {
             const data = event.data;
        
           try {
@@ -39,7 +39,7 @@ export async function Streaming(payload : any) {
 
      // stream response (SSE) from OpenAI may be fragmented into multiple chunks
      // this ensures we properly read chunks & invoke an event for each SSE event stream
-     const parser = createParser(onParse);
+     const parser = createParser({ onEvent: onParse });
 
       // https://web.dev/streams/#asynchronous-iteration
       for await (const chunk of res.body as any) {

@@ -1,17 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Configuration, OpenAIApi } from 'openai'
+import OpenAI from 'openai';
 
-const configuration = new Configuration({
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const openai = new OpenAIApi(configuration);
-
-
 
 export async function POST(request: NextRequest) {
   const res = await request.json();
   const { question , history } = res
-  const completion = await openai.createChatCompletion({
+  const completion = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
     messages: [{
       role: 'system', content: `You are a helpful assistant designed to assist users with their inquiries.
@@ -23,7 +20,7 @@ export async function POST(request: NextRequest) {
 
   });
 
-  return NextResponse.json({ message: completion.data.choices[0].message })
+  return NextResponse.json({ message: completion.choices[0].message })
 }
 
 
